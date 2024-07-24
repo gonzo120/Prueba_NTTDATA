@@ -1,0 +1,43 @@
+
+
+.form-container {
+    border: 1px solid #0205b6;
+    border-radius: 5px;
+    padding: 20px;
+    background-color: #f9f9f9;
+    width: 400px; /* Ajustar el ancho según sea necesario */
+}
+
+/* Estilos para los labels y inputs */
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color:#222081;
+}
+
+select,
+input,
+button { /* Aplica los mismos estilos de ancho y padding a button */
+    width: 90%; /* Ajusta el ancho del botón para que coincida con select e input */
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+
+/* Estilos específicos para los botones para sobrescribir cualquier estilo no deseado */
+button {
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    background-color: #222081; /* Verde */
+    color: white;
+    border-radius: 3cm;
+}
+
+/* Estilos para el botón inactivo */
+button[type="submit"]:disabled {
+    background-color: #ccc;
+    color: #666;
+}

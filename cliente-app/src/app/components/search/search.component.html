@@ -1,4 +1,4 @@
-<div>
+<div class="form-container">
     <form (ngSubmit)="onSubmit()" #searchForm="ngForm">
       <label for="tipo">Tipo de Documento:</label>
       <select id="tipo" name="tipo" [(ngModel)]="tipo" required>
@@ -16,11 +16,10 @@
         required 
         pattern="\d*" 
         minlength="8" 
-        maxlength="11" 
+        maxlength="10" 
         (input)="formatNumber()"
       />
   
       <button type="submit" [disabled]="!searchForm.form.valid">Buscar</button>
     </form>
-  </div>
-  
+</div>
