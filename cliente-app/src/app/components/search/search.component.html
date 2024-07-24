@@ -1,0 +1,26 @@
+<div>
+    <form (ngSubmit)="onSubmit()" #searchForm="ngForm">
+      <label for="tipo">Tipo de Documento:</label>
+      <select id="tipo" name="tipo" [(ngModel)]="tipo" required>
+        <option value="">Seleccione...</option>
+        <option value="C">Cédula de Ciudadanía</option>
+        <option value="P">Pasaporte</option>
+      </select>
+  
+      <label for="numero">Número de Documento:</label>
+      <input 
+        id="numero" 
+        name="numero" 
+        type="text" 
+        [(ngModel)]="numero" 
+        required 
+        pattern="\d*" 
+        minlength="8" 
+        maxlength="11" 
+        (input)="formatNumber()"
+      />
+  
+      <button type="submit" [disabled]="!searchForm.form.valid">Buscar</button>
+    </form>
+  </div>
+  
