@@ -6,3 +6,5 @@ body {
     min-height: 100vh; /* Asegura que el contenedor tenga al menos la altura de la ventana */
     margin: 0; /* Elimina el margen por defecto del body */
 }
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

@@ -3,6 +3,8 @@ import { Router } from '@angular/router';
 import { ClienteService } from '../../services/cliente.service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms'; // Importa FormsModule y ReactiveFormsModule
 import { HttpClientModule } from '@angular/common/http';
+import { MatDialog } from '@angular/material/dialog';
+import { SummaryComponent } from '../summary/summary.component';
 
 @Component({
   selector: 'app-search',
@@ -15,12 +17,15 @@ export class SearchComponent {
   tipo: string = '';
   numero: string = '';
 
-  constructor(private clienteService: ClienteService, private router: Router) { }
+  constructor(private clienteService: ClienteService,
+     private router: Router, public dialog: MatDialog) { }
 
   onSubmit() {
     this.clienteService.getCliente(this.tipo, this.numero).subscribe({
       next: (data) => {
-        this.router.navigate(['/summary'], { state: { data } });
+        this.dialog.open(SummaryComponent, {
+          data: data
+        });
       },
       error: (err) => {
         alert('Error: ' + err.error);
@@ -28,9 +33,4 @@ export class SearchComponent {
     });
   }
 
-  formatNumber() {
-    // Formatear número con separadores de miles
-    let num = this.numero.replace(/\D/g, '');
-    this.numero = num.replace(/\B(?=(\d{3})+(?!\d))/g, ',');
-  }
 }

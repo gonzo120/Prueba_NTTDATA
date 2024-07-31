@@ -11,13 +11,12 @@
       <input 
         id="numero" 
         name="numero" 
-        type="text" 
+        type="integer" 
         [(ngModel)]="numero" 
         required 
-        pattern="\d*" 
+        pattern="\d*"   
         minlength="8" 
         maxlength="10" 
-        (input)="formatNumber()"
       />
   
       <button type="submit" [disabled]="!searchForm.form.valid">Buscar</button>
